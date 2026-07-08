@@ -1,0 +1,190 @@
+/* ==========================================================================
+   SKILLS.CSS - Compact, premium, futuristic & light glassmorphic styles
+   ========================================================================== */
+
+.skills {
+    padding: 60px 0;
+    position: relative;
+    background-color: var(--bg-primary);
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Reduced gap from 40px for a more compact and balanced grid */
+}
+
+/* Category Sections */
+.skills-category-group {
+    background: rgba(255, 255, 255, 0.45); /* Light Glassmorphic panel */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-md);
+    padding: 24px 28px; /* Tighter padding to reduce empty space */
+    box-shadow: 0 4px 30px rgba(15, 158, 153, 0.02);
+    border: 1px solid rgba(15, 158, 153, 0.06);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Diagonal glass shine decoration for category cards */
+.skills-category-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.skills-category-group:hover::before {
+    left: 150%;
+}
+
+.skills-category-group:hover {
+    border-color: rgba(15, 158, 153, 0.1);
+    box-shadow: 0 8px 32px rgba(15, 158, 153, 0.04);
+}
+
+.skills-category-title {
+    font-size: 1.15rem; /* Slightly smaller for premium balanced weight */
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 18px; /* Reduced from 24px */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(15, 158, 153, 0.06);
+    padding-bottom: 10px;
+}
+
+.skills-category-title svg {
+    color: var(--accent-tertiary);
+    transition: var(--transition-normal);
+}
+
+.skills-category-group:hover .skills-category-title svg {
+    transform: scale(1.1);
+    color: var(--accent-primary);
+}
+
+/* Grid of individual skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); /* Highly compact card density */
+    gap: 12px; /* Denser gap for optimized layout */
+}
+
+/* Skill Card */
+.skill-card {
+    background-color: rgba(255, 255, 255, 0.65); /* Highly reflective glassmorphic card base */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-sm);
+    padding: 16px 12px; /* Compressed card padding, zero wasted height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(15, 158, 153, 0.05);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* AI Active sensor dot decoration */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--accent-tertiary);
+    opacity: 0.15;
+    transition: var(--transition-normal);
+}
+
+/* Bottom accent glowing indicator */
+.skill-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-tertiary), var(--accent-primary));
+    transform: scaleX(0);
+    transition: var(--transition-normal);
+}
+
+.skill-card:hover {
+    transform: translateY(-4px) translateZ(0);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(15, 158, 153, 0.25);
+    box-shadow: 0 10px 25px -5px rgba(15, 158, 153, 0.1), 0 8px 16px -6px rgba(67, 187, 182, 0.06);
+}
+
+.skill-card:hover::before {
+    background-color: #22C55E; /* Modern neon green active AI system pulse indicator */
+    opacity: 1;
+    box-shadow: 0 0 8px #22C55E;
+}
+
+.skill-card:hover::after {
+    transform: scaleX(1);
+}
+
+.skill-icon-wrapper {
+    width: 44px; /* Perfectly sized squircle wrapper */
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(15, 158, 153, 0.03);
+    transition: var(--transition-normal);
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.skill-icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: var(--transition-normal);
+}
+
+.skill-card:hover .skill-icon-wrapper {
+    transform: scale(1.12); /* Balanced scaling, premium micro-motion */
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(15, 158, 153, 0.08);
+    border-color: rgba(15, 158, 153, 0.08);
+}
+
+.skill-name {
+    font-size: 0.85rem; /* Clean modern size */
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    transition: var(--transition-fast);
+}
+
+.skill-card:hover .skill-name {
+    color: var(--accent-primary);
+}

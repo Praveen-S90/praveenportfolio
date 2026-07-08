@@ -1,0 +1,176 @@
+/* ==========================================================================
+   EDUCATION.CSS - Modern Resume-Style Education Section
+   ========================================================================== */
+
+.education {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-primary);
+}
+
+/* Elegant Underline Divider for Heading */
+.education-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary));
+    border: none;
+    margin: 15px auto 40px auto;
+    border-radius: var(--radius-full);
+}
+
+.education-container {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+/* Flexbox Education Entry Row */
+.education-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    padding: 24px 32px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Premium Left Highlight Border Hover Animation */
+.education-entry::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-primary), var(--accent-tertiary));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Card Hover Enhancements */
+.education-entry:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(67, 187, 182, 0.2);
+}
+
+.education-entry:hover::before {
+    transform: scaleY(1);
+}
+
+/* Left Side - Academic Titles */
+.education-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.education-degree {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    transition: color var(--transition-normal);
+}
+
+.education-entry:hover .education-degree {
+    color: var(--accent-primary);
+}
+
+.education-institute {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Right Side - Meta Metrics (Years + CGPA) */
+.education-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    text-align: right;
+}
+
+.education-years {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-tertiary);
+    background-color: rgba(67, 187, 182, 0.06);
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.03em;
+}
+
+.education-cgpa {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.education-cgpa span {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .education {
+        padding: 80px 0;
+    }
+    
+    .education-entry {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 24px;
+        gap: 14px;
+    }
+    
+    .education-left {
+        width: 100%;
+    }
+    
+    .education-degree {
+        font-size: 1.05rem;
+    }
+    
+    .education-institute {
+        font-size: 0.9rem;
+    }
+    
+    .education-right {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--border-light);
+        padding-top: 12px;
+        text-align: left;
+    }
+    
+    .education-years {
+        padding: 3px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .education-cgpa {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-entry {
+        padding: 16px 20px;
+    }
+}
